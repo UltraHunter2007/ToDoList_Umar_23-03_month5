@@ -39,6 +39,16 @@ export const addTask = (payload) => {
     };
 };
 
-export const deleteTask = (payload) => ({ type: "REMOVE_TASK", payload });
+export const deleteTodo = (payload) => {
+    return (dispatch) => {
+        fetch(`URL/${payload}`, { method: 'DELETE' })
+            .then(() => {
+                dispatch({ type: 'REMOVE_TASK', payload });
+            })
+            .catch((error) => {
+                console.log('Error deleting todo:', error);
+            });
+    };
+};
 
 export default taskReducer;
