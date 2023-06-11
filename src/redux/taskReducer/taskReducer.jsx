@@ -39,14 +39,14 @@ export const addTask = (payload) => {
     };
 };
 
-export const deleteTodo = (payload) => {
+export const deleteTask = (payload) => {
     return (dispatch) => {
         fetch(`URL/${payload}`, { method: 'DELETE' })
             .then(() => {
                 dispatch({ type: 'REMOVE_TASK', payload });
             })
             .catch((error) => {
-                console.log('Error deleting todo:', error);
+                console.log('Error deleting the task:', error);
             });
     };
 };
